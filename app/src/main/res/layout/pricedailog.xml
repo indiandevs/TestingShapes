@@ -3,25 +3,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/dailog"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/dialog_iv_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:textSize="20dp"
-        android:textStyle="bold"
         android:id="@+id/dialog_tv_vtype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
         android:gravity="center"
-        android:text="SEDAN" />
+        android:text="SEDAN"
+        android:textSize="18dp"
+         />
 
     <TextView
         android:id="@+id/dialog_tv_vname"
@@ -33,24 +36,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Rs"
-            android:textSize="25dp" />
+        android:layout_margin="15dp"
+        android:gravity="center"
+        >
 
         <TextView
+
             android:id="@+id/dialog_tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
-            android:textSize="25dp" />
+            android:text="@string/Rs"
+            android:textSize="15dp" />
+
 
     </LinearLayout>
+
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PRICES MAY CHANGE WITHOUT ANY PRIOR NOTICE"
+        android:textSize="10dp" />
 
 
 </LinearLayout>

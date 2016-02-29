@@ -2,6 +2,8 @@ package testing.testingshapes;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -17,6 +19,8 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.StringTokenizer;
+
 /**
  * Created by baymax on 2/2/16.
  */
@@ -24,6 +28,7 @@ import android.widget.TextView;
 public class PriceDailog extends DialogFragment {
 
 
+    String ruppeSign;
     ImageView icon;
     TextView vName, vType, price;
     static Context context;
@@ -33,15 +38,16 @@ public class PriceDailog extends DialogFragment {
 
     }
 
-    public static PriceDailog newInstance(int icon, String vType, String vName, String price,Context c) {
+    public static PriceDailog newInstance(PriceDailogData priceDailogData) {
+
 
         PriceDailog priceDailog = new PriceDailog();
-        context = c;
+        context = priceDailogData.context;
         Bundle args = new Bundle();
-        args.putInt("icon", icon);
-        args.putString("vName", vName);
-        args.putString("vType", vType);
-        args.putString("price", price);
+        args.putInt("icon", priceDailogData.icon);
+        args.putString("vName", priceDailogData.vechileName);
+        args.putString("vType", priceDailogData.type);
+        args.putString("price", priceDailogData.prices);
         priceDailog.setArguments(args);
         return priceDailog;
 
@@ -52,8 +58,8 @@ public class PriceDailog extends DialogFragment {
                              Bundle savedInstanceState) {
 
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-
-
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        ruppeSign = getResources().getString(R.string.Rs);
         return inflater.inflate(R.layout.pricedailog, container);
     }
 
@@ -66,12 +72,15 @@ public class PriceDailog extends DialogFragment {
         vType = (TextView) view.findViewById(R.id.dialog_tv_vtype);
         price = (TextView) view.findViewById(R.id.dialog_tv_price);
 
-
+        icon.setColorFilter(getResources().getColor(R.color.colorAccent));
         Bundle args = getArguments();
         icon.setImageResource(args.getInt("icon"));
         vName.setText(args.getString("vName"));
         vType.setText(args.getString("vType"));
-        price.setText(args.getString("price"));
+
+        StringTokenizer st = new StringTokenizer(args.getString("price"));
+
+        price.setText(ruppeSign + st.nextToken() + "    "  +  ruppeSign + st.nextToken() + "    " + ruppeSign + st.nextToken());
 
     }
 

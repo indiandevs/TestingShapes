@@ -4,37 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     tools:context="testing.testingshapes.MainActivity">
 
 
-    <TextView
 
+    <fragment
+        android:id="@+id/map"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1B998B"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="simulating maps"
-        android:textSize="20dp" />
+        android:name="com.google.android.gms.maps.MapFragment"
+        map:cameraBearing="112.5"
+        map:cameraTargetLat="28.669181"
+        map:cameraTargetLng="77.303988"
+        map:cameraTilt="65"
+        map:cameraZoom="15"
+        />
+
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+
+
+        <com.quinny898.library.persistentsearch.SearchBox
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/searchbox"
+            android:layout_alignParentTop="true"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SERACH"
 
-                />
-
-        </LinearLayout>
+        <ImageView
+           android:layout_above="@+id/ll_vechile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circleshape"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/gps" />
 
 
         <LinearLayout
+            android:id="@+id/ll_vechile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/btn_book_now"

@@ -9,7 +9,18 @@ public class PriceDailogData {
 
 
     Context context;
-    int image;
+    int icon;
     String vechileName;
     String prices;
+    String type;
+
+
+    public void setData(PriceDailogData data){
+
+        this.context = data.context;
+        this.icon = data.icon;
+        this.vechileName = data.vechileName;
+        this.prices = data.prices;
+        this.type = data.type;
+    }
 }
